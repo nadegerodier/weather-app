@@ -119,3 +119,7 @@ footer {
 .footer:hover {
   color: #fcf8f3;
 }
+
+#footer {
+  opacity: 0.9;
+}
