@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SheCodes Plus Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/bb0a51cd49.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body background="images/pic_11.jpg">
+    <div class="container">
+      <div class="card">
+        <div class="card-body shadow">
+          <form class="search-box">
+            <div class="row">
+              <div class="col-1">
+                <i class="fa-regular fa-compass compass"></i>
+              </div>
+              <div class="col-8">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search for a city"
+                    autofocus="on"
+                    id="city-search-input"
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    value="Search"
+                    class="btn btn-light search-button shadow-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="row current-weather">
+            <div class="col-5 location-data">
+              <h1>Austin</h1>
+              <h2>Saturday 3:43pm</h2>
+              <h3>Sunny</h3>
+            </div>
+            <div class="col-3 temp-data">
+              <i class="fa-solid fa-sun"></i>
+              <span id="current-temp-value">71</span>
+              <span class="temp-scale-selector"
+                >°C<!--<a href="#" id="fahrenheit">°F</a> |
+                <a href="#" id="celsius">°C</a>-->
+              </span>
+            </div>
+            <div class="col-3 weather-conditions">
+              Humidity: <span id="humidity">43</span>% <br />
+              Wind: <span id="wind">6</span> km/h
+            </div>
+          </div>
+
+          <hr />
+          <div class="row future-weather">
+            <div class="col">
+              Sun <br /><i class="fa-solid fa-cloud-sun"></i><br />
+              84°/<span class="night-temp">71°</span>
+            </div>
+            <div class="col">
+              Mon <br /><i class="fa-solid fa-cloud-showers-heavy"></i><br />
+              84°/<span class="night-temp">67°</span>
+            </div>
+            <div class="col">
+              Tue <br /><i class="fa-solid fa-cloud-sun"></i><br />
+              82°/<span class="night-temp">66°</span>
+            </div>
+            <div class="col">
+              Wed <br /><i class="fa-solid fa-cloud-sun"></i><br />
+              83°/<span class="night-temp">67°</span>
+            </div>
+            <div class="col">
+              Thu <br /><i class="fa-solid fa-cloud-sun"></i><br />
+              82°/<span class="night-temp">61°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>

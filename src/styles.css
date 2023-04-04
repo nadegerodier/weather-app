@@ -1,0 +1,107 @@
+body {
+  color: 3322ee;
+  font-family: "Noto Serif JP", serif;
+  background-size: 100%;
+}
+
+h1 {
+  color: #ffaaa5;
+  font-size: 50px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 20px;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background: -webkit-gradient(
+    linear,
+    0 0,
+    100% 0,
+    from(transparent),
+    to(transparent),
+    color-stop(50%, #ffaaa5)
+  );
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: #fcf8f3;
+  display: block;
+  margin: 20px auto;
+  max-width: 750px;
+}
+
+.compass {
+  color: #ffaaa5;
+  font-size: 35px;
+  position: relative;
+  left: 5px;
+}
+
+.compass:hover {
+  cursor: pointer;
+}
+
+.search-box {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-button {
+  background-color: #ffaaa5;
+  color: #fcf8f3;
+  transition: all 150ms ease-in-out;
+  width: 150px;
+}
+
+.search-button:hover {
+  background-color: #fcf8f3;
+  color: #ffaaa5;
+}
+
+.location-data {
+  margin-left: 20px;
+}
+
+.current-weather {
+  margin-bottom: 40px;
+}
+
+.temp-data {
+  color: #ffaaa5;
+  font-size: 45px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.temp-scale-selector {
+  font-size: 16px;
+  position: relative;
+  top: -21px;
+}
+
+.weather-conditions {
+  font-size: 13px;
+  margin-top: 33px;
+}
+
+.future-weather {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.night-temp {
+  opacity: 0.7;
+}
