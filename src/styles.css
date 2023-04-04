@@ -35,10 +35,15 @@ hr {
   margin-bottom: 40px;
 }
 
+footer {
+  font-size: 13px;
+  text-align: center;
+}
+
 .card {
   background-color: #fcf8f3;
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 5px;
   max-width: 750px;
 }
 
@@ -104,4 +109,13 @@ hr {
 
 .night-temp {
   opacity: 0.7;
+}
+
+.footer {
+  color: #ffaaa5;
+  text-decoration: none;
+}
+
+.footer:hover {
+  color: #fcf8f3;
 }
