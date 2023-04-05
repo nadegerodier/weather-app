@@ -1,5 +1,4 @@
 let now = new Date();
-
 let h2 = document.querySelector("h2");
 
 let days = [
@@ -18,28 +17,26 @@ let minutes = String(now.getMinutes()).padStart(2, "0");
 
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
-let h1 = document.querySelector("h1");
-let h3 = document.querySelector("h3");
-let citySearchInput = document.querySelector("#city-search-input");
-let currentTemperature = document.querySelector("#current-temp-value");
-let currentHumidity = document.querySelector("#humidity");
-let currentWind = document.querySelector("#wind");
-let currentWeatherIcon = document.querySelector("#current-weather-icon");
-
 function updateLocationData(response) {
+  let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
-  let temperature = Math.round(response.data.main.temp);
-  currentTemperature.innerHTML = `${temperature}`;
-  let humidity = `${response.data.main.humidity}`;
-  currentHumidity.innerHTML = `${humidity}`;
-  let wind = Math.round(response.data.wind.speed);
-  currentWind.innerHTML = `${wind}`;
+  let h3 = document.querySelector("h3");
   let weatherDescription = `${response.data.weather[0].description}`;
   h3.innerHTML = `${weatherDescription}`;
+  let currentWeatherIcon = document.querySelector("#current-weather-icon");
   currentWeatherIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let currentTemperature = document.querySelector("#current-temp-value");
+  let temperature = Math.round(response.data.main.temp);
+  currentTemperature.innerHTML = `${temperature}`;
+  let currentHumidity = document.querySelector("#humidity");
+  let humidity = `${response.data.main.humidity}`;
+  currentHumidity.innerHTML = `${humidity}`;
+  let currentWind = document.querySelector("#wind");
+  let wind = Math.round(response.data.wind.speed);
+  currentWind.innerHTML = `${wind}`;
 }
 
 function searchCity(city) {
@@ -51,6 +48,7 @@ function searchCity(city) {
 
 function findCity(event) {
   event.preventDefault();
+  let citySearchInput = document.querySelector("#city-search-input");
   let city = `${citySearchInput.value}`;
   citySearchInput.value = "";
   searchCity(city);
