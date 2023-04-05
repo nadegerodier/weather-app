@@ -52,6 +52,7 @@ function searchCity(city) {
 function findCity(event) {
   event.preventDefault();
   let city = `${citySearchInput.value}`;
+  citySearchInput.value = "";
   searchCity(city);
 }
 
