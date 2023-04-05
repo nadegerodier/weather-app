@@ -21,6 +21,9 @@ h2 {
 h3 {
   font-size: 20px;
   opacity: 0.7;
+}
+
+h3:first-letter {
   text-transform: capitalize;
 }
 
