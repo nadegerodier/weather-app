@@ -58,7 +58,6 @@ let searchButton = document.querySelector(".search-box");
 searchButton.addEventListener("submit", findCity);
 
 function getCurrentLocationData(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
