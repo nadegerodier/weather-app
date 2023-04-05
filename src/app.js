@@ -24,6 +24,7 @@ let citySearchInput = document.querySelector("#city-search-input");
 let currentTemperature = document.querySelector("#current-temp-value");
 let currentHumidity = document.querySelector("#humidity");
 let currentWind = document.querySelector("#wind");
+let currentWeatherIcon = document.querySelector("#current-weather-icon");
 
 function updateLocationData(response) {
   h1.innerHTML = `${response.data.name}`;
@@ -35,6 +36,10 @@ function updateLocationData(response) {
   currentWind.innerHTML = `${wind}`;
   let weatherDescription = `${response.data.weather[0].description}`;
   h3.innerHTML = `${weatherDescription}`;
+  currentWeatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(city) {

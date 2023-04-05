@@ -92,7 +92,13 @@ footer {
   color: #ffaaa5;
   font-size: 45px;
   margin-top: 20px;
-  margin-left: 30px;
+  padding: 0;
+}
+
+#current-weather-icon {
+  position: relative;
+  top: -3px;
+  width: 70px;
 }
 
 .temp-scale-selector {
