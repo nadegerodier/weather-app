@@ -19,24 +19,24 @@ h2.innerHTML = `${day} ${hours}:${minutes}`;
 
 function updateLocationData(response) {
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.name}`;
+  h1.innerHTML = response.data.name;
   let h3 = document.querySelector("h3");
-  let weatherDescription = `${response.data.weather[0].description}`;
-  h3.innerHTML = `${weatherDescription}`;
+  let weatherDescription = response.data.weather[0].description;
+  h3.innerHTML = weatherDescription;
   let currentWeatherIcon = document.querySelector("#current-weather-icon");
   currentWeatherIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   let currentTemperature = document.querySelector("#current-temp-value");
-  let temperature = Math.round(response.data.main.temp);
-  currentTemperature.innerHTML = `${temperature}`;
+  celsiusTemperature = Math.round(response.data.main.temp);
+  currentTemperature.innerHTML = celsiusTemperature;
   let currentHumidity = document.querySelector("#humidity");
-  let humidity = `${response.data.main.humidity}`;
-  currentHumidity.innerHTML = `${humidity}`;
+  let humidity = response.data.main.humidity;
+  currentHumidity.innerHTML = humidity;
   let currentWind = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
-  currentWind.innerHTML = `${wind}`;
+  currentWind.innerHTML = wind;
 }
 
 function searchCity(city) {
@@ -49,7 +49,7 @@ function searchCity(city) {
 function findCity(event) {
   event.preventDefault();
   let citySearchInput = document.querySelector("#city-search-input");
-  let city = `${citySearchInput.value}`;
+  let city = citySearchInput.value;
   citySearchInput.value = "";
   searchCity(city);
 }
@@ -74,22 +74,29 @@ function getCurrentLocation(event) {
 let compass = document.querySelector(".compass");
 compass.addEventListener("click", getCurrentLocation);
 
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#current-temp-value");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  currentTemperature.innerHTML = fahrenheitTemperature;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#current-temp-value");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let celsiusTemperature = null;
+
 searchCity("Austin");
-
-//function convertToCelsius(event) {
-//  event.preventDefault();
-//  let currentTempValue = document.querySelector(".current-temp-value");
-//  currentTempValue.innerHTML = 21;
-//}
-
-//let celsiusTemp = document.querySelector("#celsius");
-//celsiusTemp.addEventListener("click", convertToCelsius);
-
-//function convertToFahrenheit(event) {
-//  event.preventDefault();
-//  let currentTempValue = document.querySelector(".current-temp-value");
-//  currentTempValue.innerHTML = 71;
-//}
-
-//let fahrenheitTemp = document.querySelector("#fahrenheit");
-//fahrenheitTemp.addEventListener("click", convertToFahrenheit);

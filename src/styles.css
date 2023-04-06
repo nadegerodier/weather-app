@@ -1,5 +1,5 @@
 body {
-  color: 3322ee;
+  color: #212529;
   background-size: 100%;
   display: block;
   font-family: "Noto Serif JP", serif;
@@ -98,7 +98,7 @@ footer {
 #current-weather-icon {
   position: relative;
   top: -3px;
-  width: 65px;
+  width: 70px;
 }
 
 .temp-scale-selector {
@@ -107,9 +107,19 @@ footer {
   top: -21px;
 }
 
+.temp-scale-selector a {
+  text-decoration: none;
+}
+
+.temp-scale-selector .active {
+  color: #212529;
+  cursor: default;
+}
+
 .weather-conditions {
   font-size: 13px;
   margin-top: 33px;
+  padding: 0;
 }
 
 .future-weather {
