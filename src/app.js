@@ -17,6 +17,32 @@ let minutes = String(now.getMinutes()).padStart(2, "0");
 
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
+function displayForecast() {
+  let weatherForecast = document.querySelector(".weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+     <div class="col">
+      <div class="weather-forecast-date">${day}</div>
+      <img
+        src="http://openweathermap.org/img/wn/01d@2x.png"
+        alt=""
+        width="40px"
+      />
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max">84°/</span>
+        <span class="weather-forecast-temperature-min">71°</span>
+      </div>
+    </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  weatherForecast.innerHTML = forecastHTML;
+}
+
 function updateLocationData(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
@@ -102,3 +128,4 @@ celsiusLink.addEventListener("click", convertToCelsius);
 let celsiusTemperature = null;
 
 searchCity("Austin");
+displayForecast();
