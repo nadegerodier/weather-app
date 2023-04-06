@@ -37,6 +37,8 @@ function updateLocationData(response) {
   let currentWind = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
   currentWind.innerHTML = wind;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function searchCity(city) {
