@@ -13,10 +13,26 @@ function displayCurrentDate() {
   ];
   let day = days[now.getDay()];
 
-  let hours = String(now.getHours()).padStart(2, "0");
+  let hours = now.getHours();
+
+  let AmOrPm = "";
+  if (hours > 11) {
+    AmOrPm = "PM";
+  } else {
+    AmOrPm = "AM";
+  }
+
+  if (hours > 12) {
+    hours = hours - 12;
+  }
+  if (hours === 0) {
+    hours = 12;
+  }
+  hours = String(hours).padStart(2, "0");
+
   let minutes = String(now.getMinutes()).padStart(2, "0");
 
-  h2.innerHTML = `${day} ${hours}:${minutes}`;
+  h2.innerHTML = `${day} ${hours}:${minutes} ${AmOrPm}`;
 }
 
 function formatDay(timestamp) {
@@ -27,7 +43,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response);
   let forecast = response.data.daily;
   let weatherForecast = document.querySelector(".weather-forecast");
   let forecastHTML = `<div class="row">`;
