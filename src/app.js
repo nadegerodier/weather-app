@@ -1,46 +1,71 @@
-let now = new Date();
-let h2 = document.querySelector("h2");
+function displayCurrentDate() {
+  let now = new Date();
+  let h2 = document.querySelector("h2");
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
 
-let hours = String(now.getHours()).padStart(2, "0");
-let minutes = String(now.getMinutes()).padStart(2, "0");
+  let hours = String(now.getHours()).padStart(2, "0");
+  let minutes = String(now.getMinutes()).padStart(2, "0");
 
-h2.innerHTML = `${day} ${hours}:${minutes}`;
+  h2.innerHTML = `${day} ${hours}:${minutes}`;
+}
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  console.log(response);
+  let forecast = response.data.daily;
   let weatherForecast = document.querySelector(".weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
      <div class="col">
-      <div class="weather-forecast-date">${day}</div>
+      <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
       <img
-        src="http://openweathermap.org/img/wn/01d@2x.png"
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
         alt=""
         width="40px"
       />
       <div class="weather-forecast-temperatures">
-        <span class="weather-forecast-temperature-max">84°/</span>
-        <span class="weather-forecast-temperature-min">71°</span>
+        <span class="weather-forecast-temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}°/</span>
+        <span class="weather-forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
       </div>
     </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   weatherForecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "58a6775f97527351bf6c6966e209be39";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(`${apiUrl}`).then(displayForecast);
 }
 
 function updateLocationData(response) {
@@ -65,6 +90,7 @@ function updateLocationData(response) {
   currentWind.innerHTML = wind;
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -128,4 +154,4 @@ celsiusLink.addEventListener("click", convertToCelsius);
 let celsiusTemperature = null;
 
 searchCity("Austin");
-displayForecast();
+displayCurrentDate();
