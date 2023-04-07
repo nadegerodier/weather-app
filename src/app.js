@@ -63,7 +63,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "58a6775f97527351bf6c6966e209be39";
-  let units = "metric";
+  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}`).then(displayForecast);
 }
@@ -80,21 +80,19 @@ function updateLocationData(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   let currentTemperature = document.querySelector("#current-temp-value");
-  celsiusTemperature = Math.round(response.data.main.temp);
-  currentTemperature.innerHTML = celsiusTemperature;
+  fahrenheitTemperature = Math.round(response.data.main.temp);
+  currentTemperature.innerHTML = fahrenheitTemperature;
   let currentHumidity = document.querySelector("#humidity");
   let humidity = response.data.main.humidity;
   currentHumidity.innerHTML = humidity;
   let currentWind = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
   currentWind.innerHTML = wind;
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
   getForecast(response.data.coord);
 }
 
 function searchCity(city) {
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "58a6775f97527351bf6c6966e209be39";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(updateLocationData);
@@ -114,7 +112,7 @@ searchButton.addEventListener("submit", findCity);
 function getCurrentLocationData(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "58a6775f97527351bf6c6966e209be39";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(updateLocationData);
@@ -127,31 +125,6 @@ function getCurrentLocation(event) {
 
 let compass = document.querySelector(".compass");
 compass.addEventListener("click", getCurrentLocation);
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let currentTemperature = document.querySelector("#current-temp-value");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  currentTemperature.innerHTML = fahrenheitTemperature;
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let currentTemperature = document.querySelector("#current-temp-value");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  currentTemperature.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", convertToCelsius);
-
-let celsiusTemperature = null;
 
 searchCity("Austin");
 displayCurrentDate();

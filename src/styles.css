@@ -107,15 +107,6 @@ footer {
   top: -21px;
 }
 
-.temp-scale-selector a {
-  text-decoration: none;
-}
-
-.temp-scale-selector .active {
-  color: #212529;
-  cursor: default;
-}
-
 .weather-conditions {
   font-size: 13px;
   margin-top: 33px;
