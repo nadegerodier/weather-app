@@ -73,18 +73,22 @@ footer {
   color: #ffaaa5;
 }
 
-.location-data {
-  margin-left: 20px;
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 
-.current-weather {
-  margin-bottom: 40px;
+.location-data {
+  margin-left: 20px;
+  max-width: 350px;
 }
 
 .temp-data {
   color: #ffaaa5;
   font-size: 45px;
   margin-top: 20px;
+  min-width: 150px;
   padding: 0;
 }
 
@@ -102,6 +106,7 @@ footer {
 
 .weather-conditions {
   font-size: 13px;
+  margin-right: 20px;
   margin-top: 33px;
   padding: 0;
 }
