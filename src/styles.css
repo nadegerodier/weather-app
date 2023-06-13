@@ -140,6 +140,76 @@ footer a:hover {
   text-align: center;
 }
 
+.weather-forecast-temperatures {
+  font-size: 18px;
+}
+
 .weather-forecast-temperature-min {
   opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .compass {
+    font-size: 28px;
+    left: 2px;
+    top: 4px;
+  }
+
+  .search-button {
+    left: -15px;
+    position: relative;
+    width: 100px;
+  }
+
+  #current-weather-icon {
+    width: 55px;
+  }
+
+  .location-data {
+    margin-left: 5px;
+  }
+
+  .temp-data {
+    font-size: 40px;
+    left: 20px;
+    position: relative;
+  }
+
+  .temp-scale-selector {
+    font-size: 14px;
+    top: -19px;
+  }
+
+  .weather-conditions {
+    font-size: 11px;
+    margin-right: 5px;
+  }
+
+  .weather-forecast {
+    font-size: 16px;
+  }
+
+  .weather-forecast-columns {
+    padding: 0;
+  }
+
+  .weather-forecast-temperatures {
+    font-size: 14px;
+  }
 }
