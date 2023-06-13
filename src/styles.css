@@ -192,7 +192,6 @@ footer a:hover {
 
   .temp-data {
     font-size: 40px;
-    left: 20px;
     min-width: 120px;
     position: relative;
   }
@@ -260,5 +259,44 @@ footer a:hover {
 
   .weather-forecast-temperatures {
     font-size: 11px;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 11px;
+  }
+
+  h3 {
+    font-size: 10px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+
+  .temp-data {
+    font-size: 24px;
+  }
+
+  .temp-scale-selector {
+    font-size: 8px;
+    top: -11px;
+  }
+
+  .weather-conditions {
+    font-size: 7px;
+  }
+
+  .weather-forecast {
+    font-size: 12px;
+  }
+
+  .weather-forecast-temperatures {
+    font-size: 10px;
   }
 }
