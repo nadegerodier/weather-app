@@ -5,6 +5,8 @@
 }
 
 body {
+  background-image: url(/images/pic_11.jpg);
+  background-repeat: no-repeat;
   background-size: 100%;
   color: var(--text-color);
   display: block;
