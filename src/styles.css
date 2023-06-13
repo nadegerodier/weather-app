@@ -13,6 +13,7 @@ body {
   font-family: "Noto Serif JP", serif;
   margin: 0 auto;
   max-width: 750px;
+  min-height: 100vh;
 }
 
 h1 {
@@ -161,13 +162,17 @@ footer a:hover {
     font-size: 14px;
   }
 
+  footer {
+    font-size: 13px;
+    text-align: center;
+  }
+
   .card-body {
     padding: 10px;
   }
 
   .compass {
     font-size: 28px;
-    left: 2px;
     top: 4px;
   }
 
@@ -188,6 +193,7 @@ footer a:hover {
   .temp-data {
     font-size: 40px;
     left: 20px;
+    min-width: 120px;
     position: relative;
   }
 
@@ -211,5 +217,48 @@ footer a:hover {
 
   .weather-forecast-temperatures {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 11px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+
+  .compass {
+    left: -3px;
+  }
+
+  .temp-data {
+    font-size: 30px;
+  }
+
+  .temp-scale-selector {
+    font-size: 10px;
+    top: -14px;
+  }
+
+  .weather-conditions {
+    font-size: 9px;
+  }
+
+  .weather-forecast {
+    font-size: 13px;
+  }
+
+  .weather-forecast-temperatures {
+    font-size: 11px;
   }
 }
