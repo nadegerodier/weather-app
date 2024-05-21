@@ -39,7 +39,8 @@ body {
 }
 
 .search-button {
-  background-color: var(--branding-color);
+  background: var(--branding-color);
+  border-color: var(--branding-color);
   color: var(--secondary-color);
   transition: all 150ms ease-in-out;
   width: 150px;
@@ -47,6 +48,7 @@ body {
 
 .search-button:hover {
   background-color: var(--secondary-color);
+  border-color: var(--branding-color);
   color: var(--branding-color);
 }
 
